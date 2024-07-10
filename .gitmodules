@@ -2,3 +2,6 @@
 	path = RasPike-ART
 	url = https://github.com/ytoi/RasPike-ART.git
 	branch = main
+[submodule "sdk/workspace/etrobo-2024-cpp"]
+	path = sdk/workspace/etrobo-2024-cpp
+	url = git@github.com:neec-etrc-2024/etrobo-2024-cpp.git

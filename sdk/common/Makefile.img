@@ -70,7 +70,7 @@ ifeq ($(SRCLANG),c++)
 	USE_CXX = true
 	COPTS += -std=c99
 	COPTS += -DSYSLOG_IMPLEMENT_AS_PRINTF -DMAKE_RASPIKE
-	CXXLIBS = -lstdc++ -lm -lc -lgcc -std=c++11 
+	CXXLIBS = -lstdc++ -lm -lc -lgcc -std=gnu++17 
 #	CXXRTS = cxxrt.o newlibrt.o
 endif
 
@@ -269,6 +269,20 @@ include ../common/Makefile.prj.common
 #
 CONFIG_EV3RT_APPLICATION = 1
 include @(APPLDIRS)/Makefile.inc
+
+#
+# For RasPike-ART
+#
+ifneq ($(USE_RASPIKE_ART),)
+RASPIKE-ART_DIR=../../RasPike-ART
+LIBRASPIKE-ART_DIR=$(RASPIKE-ART_DIR)/lib
+LIBRASPIKE-ART=libraspike-art.a
+include ../common/Makefile.raspike-art
+endif
+
+
+
+
 
 #
 #  システムサービスに関する定義
@@ -607,7 +621,7 @@ $(OBJDIR)/@(BANNEROBJ): $(filter-out $(OBJDIR)/@(BANNEROBJ),$(ALL_OBJS2)) \
 $(OBJFILE): $(ALL_OBJS) $(LIBS_DEP) $(LDSCRIPT) $(WORKSPACE_LIB_TO_BUILD) 
 	$(LINK) $(CFLAGS) $(LDFLAGS) $(OBJ_LDFLAGS) -o $(OBJFILE) \
 		$(START_OBJS) $(APPL_OBJS) $(SYSSVC_OBJS) $(CFG_OBJS) \
-		$(ALL_LIBS) $(END_OBJS)
+		$(ALL_LIBS) $(END_OBJS) $(EXTRA_LIBS)
 
 #
 #  シンボルファイルの生成

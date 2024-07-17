@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/RasPike-ART/drivers/include",
-                "${workspaceFolder}/sdk/workspace"
+                "${workspaceFolder}/sdk/workspace/etrc-2024/**",
+                "${workspaceFolder}/sdk/workspace/etrc-2024/src/spikeapi/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/aarch64-linux-gnu-gcc",

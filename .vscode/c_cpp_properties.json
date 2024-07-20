@@ -4,6 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/sdk/common/ev3api/include",
                 "${workspaceFolder}/RasPike-ART/drivers/include",
                 "${workspaceFolder}/sdk/workspace/etrc-2024/**",
                 "${workspaceFolder}/sdk/workspace/etrc-2024/src/spikeapi/include"
